@@ -1,0 +1,33 @@
+.erx-formfield-container {
+	display: inline-block;
+}
+
+.erx-formfield-label {
+	float: left;
+	width: 100px;
+	height: 80px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 80px;
+	color: rgb(3, 27, 43);
+	font-family: 'Ubuntu';
+	background-color: rgb(25, 116, 175);
+}
+
+.erx-formfield-input {
+	float: left;
+	padding: 0 20px;
+	width: 310px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 30px;
+	color: rgb(16, 68, 101);
+	font-family: 'Ubuntu Mono';
+	background-color: rgb(116, 175, 213);
+	border: none;
+	outline: none;
+}
+
+input.erx-formfield-input::-webkit-input-placeholder {
+    color: #B4D3E7;
+}
