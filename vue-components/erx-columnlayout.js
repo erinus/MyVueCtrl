@@ -12,7 +12,6 @@ var erxColumnLayout = Vue.extend({
 		var wone = (wall - this.Spacing * this.Columns) / this.Columns;
 		for (idx in this.$children) {
 			var self = this.$children[idx].$el;
-			var pare = self.parentNode;
 			var next = self.nextSibling;
 			var wrap = document.createElement('DIV');
 			wrap.style.cssFloat = 'left';
@@ -20,24 +19,14 @@ var erxColumnLayout = Vue.extend({
 			wrap.style.width = wone + 'px';
 			wrap.appendChild(self);
 			if (next) {
-				pare.insertBefore(wrap, next);
+				this.$el.insertBefore(wrap, next);
 			} else {
-				pare.appendChild(wrap);
+				this.$el.appendChild(wrap);
 			}
 		}
-		var node = document.createElement('SPAN');
+		var node = document.createElement('DIV');
 		node.style.clear = 'both';
 		this.$el.appendChild(node);
-		// fix invisible scrollbar width
-		this.$nextTick(function () {
-			var wall = this.$el.clientWidth - this.Spacing;
-			var wone = (wall - this.Spacing * this.Columns) / this.Columns;
-			for (idx in this.$el.children) {
-				if (this.$el.children[idx].tagName === 'DIV') {
-					this.$el.children[idx].style.width = wone + 'px';
-				}
-			}
-		});
 	},
     updated: function () {
 		
@@ -56,7 +45,15 @@ var erxColumnLayout = Vue.extend({
 
 	},
 	methods: {
-		
+		// ResizeChilds: function () {
+		// 	var wall = this.$el.clientWidth - this.Spacing;
+		// 	var wone = (wall - this.Spacing * this.Columns) / this.Columns;
+		// 	for (idx in this.$el.children) {
+		// 		if (this.$el.children[idx].tagName === 'DIV') {
+		// 			this.$el.children[idx].style.width = wone + 'px';
+		// 		}
+		// 	}
+		// }
 	},
 	data: function () {
 		return {
